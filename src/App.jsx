@@ -767,15 +767,15 @@ export default function NicheCompassAI() {
             <p style={{ fontSize: '16px', color: '#94a3b8', margin: '8px 0 0' }}>{savedEvaluations.length} niche{savedEvaluations.length !== 1 ? 's' : ''} analyzed</p>
           </div>
           <div style={{ display: 'grid', gap: '20px' }}>
-            {savedEvaluations.map(eval => (
-              <div key={eval.id} onClick={() => { setAnalysis(eval.analysis); setResponses(eval.responses); setView('results'); }} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '16px', padding: '28px', cursor: 'pointer', transition: 'all 0.3s' }} onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.transform = 'translateY(-4px)'; }} onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
+            {savedEvaluations.map(evaluation => (
+              <div key={evaluation.id} onClick={() => { setAnalysis(evaluation.analysis); setResponses(evaluation.responses); setView('results'); }} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '16px', padding: '28px', cursor: 'pointer', transition: 'all 0.3s' }} onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.transform = 'translateY(-4px)'; }} onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', gap: '20px', flexWrap: 'wrap' }}>
                   <div style={{ flex: 1 }}>
-                    <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px' }}>{eval.nicheIdea}</h3>
-                    <div style={{ fontSize: '13px', color: '#94a3b8', marginBottom: '16px' }}>{new Date(eval.timestamp).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</div>
+                    <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px' }}>{evaluation.nicheIdea}</h3>
+                    <div style={{ fontSize: '13px', color: '#94a3b8', marginBottom: '16px' }}>{new Date(evaluation.timestamp).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</div>
                     <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-                      <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: `${getVerdictColor(eval.analysis.verdict)}20`, border: `1px solid ${getVerdictColor(eval.analysis.verdict)}`, borderRadius: '8px', fontSize: '14px', fontWeight: '600', color: getVerdictColor(eval.analysis.verdict) }}>{eval.analysis.verdict}</div>
-                      <div style={{ fontSize: '24px', fontWeight: '800', color: getVerdictColor(eval.analysis.verdict) }}>{eval.analysis.overallScore}/100</div>
+                      <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: `${getVerdictColor(evaluation.analysis.verdict)}20`, border: `1px solid ${getVerdictColor(evaluation.analysis.verdict)}`, borderRadius: '8px', fontSize: '14px', fontWeight: '600', color: getVerdictColor(evaluation.analysis.verdict) }}>{evaluation.analysis.verdict}</div>
+                      <div style={{ fontSize: '24px', fontWeight: '800', color: getVerdictColor(evaluation.analysis.verdict) }}>{evaluation.analysis.overallScore}/100</div>
                     </div>
                   </div>
                   <ChevronRight size={24} color="#94a3b8" />
